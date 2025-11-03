@@ -1,0 +1,83 @@
+.selectBox {
+  position: relative;
+  margin-bottom: 16px;
+
+  &Button {
+    color: var(--gray100);
+    font: var(--textS);
+    background-color: var(--black400);
+    // width: 168px;
+    height: 48px;
+    padding: 9.25px 13.25px;
+    border: 1px solid var(--gray200);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--white);
+    }
+    .toggleIcon {
+      transition: transform 0.3s ease;
+      transform: rotate(0deg);
+    }
+
+    .rotated {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &Options {
+    position: absolute;
+    margin-top: 6px;
+    z-index: 100;
+    list-style: none;
+    padding: 6px 0;
+    display: block;
+
+    .selectBoxOption {
+      border: 1px solid var(--gray200);
+      background-color: var(--black400);
+      padding: 12px 14px;
+      cursor: pointer;
+      box-sizing: border-box;
+      font: var(--textS);
+      text-align: center;
+
+      &:nth-child(1) {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}
+
+.small {
+  width: 170px;
+}
+.large {
+  width: 264px;
+}
+
+//모바일용
+@media (max-width: 744px) {
+  .small {
+    width: 146px;
+    height: 40px;
+    font: var(--textXs);
+    padding: 0;
+    padding-left: 10px;
+  }
+
+  .large {
+    width: 241px;
+    height: 40px;
+    font: var(--textXs);
+  }
+}

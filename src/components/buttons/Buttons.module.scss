@@ -1,0 +1,198 @@
+// 버튼 기본 flex 설정 적용
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+// 둥근 버튼 설정 : 공통 속성 + 미디어 쿼리
+@mixin round {
+  border-radius: 50px;
+  color: var(--gray200);
+  font: var(--textSb);
+  border: none;
+}
+
+.simple {
+  @include button;
+  padding: 13px 48px;
+  background-color: var(--brandOrange);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font: var(--textSb);
+  border-radius: 50px;
+  &:active {
+    background-color: var(--black100);
+  }
+}
+
+// 일반 둥근 버튼
+.round {
+  @include button;
+  @include round;
+  padding: 13px 48px;
+  height: 48px;
+  background-color: var(--black100);
+
+  &.active {
+    background-color: var(--brandOrange);
+    color: var(--white);
+  }
+}
+
+// 작고 둥근 버튼
+.roundSmall {
+  @include button;
+  @include round;
+  padding: 13px 24px;
+  height: 40px;
+  background-color: var(--brandOrange);
+  color: var(--white);
+}
+
+// 초기화 버튼(안이 차 있는 둥근 버튼)
+.restart {
+  @include button;
+  @include round;
+  padding: 8px 24px;
+  gap: 3px;
+  background-color: var(--brandOrange);
+  color: var(--white);
+  width: 149px;
+}
+
+.restartIcon {
+  transform: rotate(50deg);
+  stroke-width: 1;
+}
+
+// 투명하고 테두리 있는 버튼 공통 설정
+@mixin outline {
+  background-color: transparent;
+  color: var(--brandOrange);
+  border: 1px solid var(--brandOrange);
+}
+
+// 투자 모달창 취소 버튼(일반 + Outline 버튼)
+.roundOutline {
+  @include button;
+  @include round;
+  @include outline;
+  width: 183px;
+  padding: 13px 48px;
+  font: var(--textLSb);
+}
+
+// 모달창에 쓰는 선택 버튼
+.modalButton {
+  @include button;
+  @include outline;
+  font: var(--textM);
+  border-radius: 10px;
+  padding: 13px 24px;
+  min-width: 104px;
+  height: 48px;
+
+  &.active {
+    border: 1px solid var(--gray100);
+    color: var(--gray100);
+    padding: 8px 12px;
+
+    .checkIcon {
+      display: block;
+    }
+  }
+}
+
+.checkIcon {
+  display: none;
+}
+
+// 선택 해제 버튼 스타일 추가
+.cancel {
+  color: var(--gray200);
+  border: 1px solid var(--gray200);
+}
+
+// 버튼 크기
+.lg {
+  width: 194px;
+  height: 48px;
+}
+
+.md,
+.mdChange {
+  width: 183px;
+  height: 48px;
+}
+
+.sLg {
+  width: 167px;
+}
+
+.sMd {
+  width: 135px;
+}
+
+.sM {
+  width: 131px;
+}
+
+@media (max-width: 744px) {
+  .round,
+  .simple {
+    font: var(--textSSb);
+    padding: 13px 24px;
+    width: 135px;
+    height: 40px;
+  }
+
+  .roundSmall {
+    font: var(--textSSb);
+    padding: 13px 24px;
+    width: 100px;
+    height: 32px;
+  }
+
+  .restart {
+    padding: 4px 12px;
+    width: 116px;
+  }
+
+  .roundOutline {
+    padding: 12px 24px;
+    width: 124px;
+  }
+
+  .modalButton {
+    font: var(--textSM);
+    padding: 13px 12px;
+    min-width: 73px;
+    height: 32px;
+
+    &.active {
+      padding: 11px 4px;
+    }
+  }
+
+  .lg,
+  .mdChange {
+    width: 124px;
+    height: 40px;
+  }
+
+  .sLg {
+    width: 128px;
+  }
+
+  .sMd {
+    width: 100px;
+  }
+
+  .sM {
+    width: 97px;
+  }
+}

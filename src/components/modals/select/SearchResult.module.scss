@@ -1,0 +1,15 @@
+.title {
+  font: var(--textLB);
+}
+
+.text {
+  color: var(--gray200);
+  font: var(--textS);
+  padding: 10px 15px 0;
+}
+
+.warningText {
+  font: var(--textS);
+  color: var(--redError);
+  margin-bottom: 20px;
+}
